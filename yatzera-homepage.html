@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Emerald – Affordable Insurance. In Minutes.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --forest: #1a3d2b;
+  --forest-deep: #0e2419;
+  --moss: #2d5a3d;
+  --sage: #4a8c62;
+  --sage-light: #6ab383;
+  --mint: #c8edd8;
+  --mint-pale: #e8f5ed;
+  --gold: #d4a843;
+  --gold-light: #f0c864;
+  --gold-pale: #fdf4e0;
+  --cream: #faf8f3;
+  --warm-white: #ffffff;
+  --charcoal: #1c1f1a;
+  --mid: #4a5244;
+  --muted: #7a8574;
+  --border: rgba(26,61,43,0.1);
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: var(--cream);
+  color: var(--charcoal);
+  overflow-x: hidden;
+}
+
+/* ─── NAV ─── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  padding: 0 5%;
+  height: 72px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(250,248,243,0.88);
+  backdrop-filter: blur(20px) saturate(1.4);
+  border-bottom: 1px solid var(--border);
+  transition: box-shadow 0.3s;
+}
+
+.logo {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none;
+}
+
+.logo-mark {
+  width: 38px; height: 38px;
+  background: var(--forest);
+  border-radius: 10px;
+  display: grid; place-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.logo-mark::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, transparent 60%);
+}
+
+.logo-mark svg { width: 20px; height: 20px; fill: white; position: relative; z-index: 1; }
+
+.logo-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--forest);
+  letter-spacing: 0.04em;
+}
+
+.nav-links {
+  display: flex; align-items: center; gap: 4px;
+}
+
+.nav-links a {
+  font-size: 0.875rem; font-weight: 500;
+  color: var(--mid); text-decoration: none;
+  padding: 8px 16px; border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.nav-links a:hover { color: var(--forest); background: var(--mint-pale); }
+
+.btn-primary {
+  background: var(--forest);
+  color: white !important;
+  padding: 10px 24px !important;
+  border-radius: 50px !important;
+  font-weight: 600 !important;
+  font-size: 0.875rem !important;
+  transition: all 0.2s !important;
+  box-shadow: 0 2px 16px rgba(26,61,43,0.3) !important;
+}
+
+.btn-primary:hover {
+  background: var(--moss) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 24px rgba(26,61,43,0.4) !important;
+}
+
+/* ─── HERO ─── */
+.hero {
+  background: var(--forest-deep);
+  min-height: 100vh;
+  padding-top: 72px;
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+/* Organic background texture */
+.hero-bg {
+  position: absolute; inset: 0; pointer-events: none;
+}
+
+.hero-bg .blob1 {
+  position: absolute;
+  width: 700px; height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(74,140,98,0.18) 0%, transparent 70%);
+  top: -200px; right: -100px;
+  animation: pulse 8s ease-in-out infinite;
+}
+
+.hero-bg .blob2 {
+  position: absolute;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212,168,67,0.1) 0%, transparent 70%);
+  bottom: 100px; left: -100px;
+  animation: pulse 10s 2s ease-in-out infinite;
+}
+
+.hero-bg .grid-lines {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.hero-left {
+  position: relative; z-index: 2;
+  padding: 80px 0 80px 8%;
+  animation: fadeSlideUp 0.9s ease both;
+}
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 50px;
+  padding: 8px 18px;
+  margin-bottom: 28px;
+}
+
+.hero-badge .pulse-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--sage-light);
+  box-shadow: 0 0 0 0 rgba(106,179,131,0.5);
+  animation: ripple 2s ease-in-out infinite;
+}
+
+.hero-badge span {
+  font-size: 0.8rem; font-weight: 600; color: rgba(255,255,255,0.7);
+  letter-spacing: 0.02em;
+}
+
+.hero-left h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.8rem, 5vw, 4rem);
+  color: white;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 22px;
+}
+
+.hero-left h1 em {
+  font-style: italic;
+  color: var(--gold-light);
+}
+
+.hero-left p {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.7;
+  max-width: 400px;
+  margin-bottom: 40px;
+  font-weight: 300;
+}
+
+.hero-actions {
+  display: flex; align-items: center; gap: 16px;
+  animation: fadeSlideUp 0.9s 0.2s ease both;
+  opacity: 0;
+}
+
+.btn-hero-primary {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--gold);
+  color: var(--forest-deep) !important;
+  font-size: 0.95rem; font-weight: 700;
+  padding: 16px 32px; border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.25s;
+  box-shadow: 0 4px 24px rgba(212,168,67,0.4);
+  letter-spacing: 0.01em;
+}
+
+.btn-hero-primary:hover {
+  background: var(--gold-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(212,168,67,0.5);
+}
+
+.btn-hero-primary svg { width: 18px; height: 18px; transition: transform 0.2s; }
+.btn-hero-primary:hover svg { transform: translateX(3px); }
+
+.btn-hero-ghost {
+  display: inline-flex; align-items: center; gap: 8px;
+  color: rgba(255,255,255,0.65);
+  font-size: 0.9rem; font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.btn-hero-ghost:hover { color: white; }
+
+/* Hero Right - Visual Panel */
+.hero-right {
+  position: relative; z-index: 2;
+  padding: 80px 8% 80px 0;
+  display: flex; justify-content: flex-end; align-items: center;
+  animation: fadeSlideUp 0.9s 0.1s ease both;
+  opacity: 0;
+}
+
+.hero-card-stack {
+  position: relative;
+  width: 340px;
+}
+
+.main-card {
+  background: white;
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.06);
+  position: relative;
+  overflow: hidden;
+}
+
+.main-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, var(--sage), var(--gold));
+}
+
+.card-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.card-avatar {
+  width: 48px; height: 48px; border-radius: 50%;
+  background: var(--mint-pale);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+}
+
+.card-status {
+  display: flex; align-items: center; gap: 6px;
+  background: var(--mint-pale);
+  border-radius: 50px; padding: 6px 14px;
+  font-size: 0.75rem; font-weight: 700; color: var(--sage);
+}
+
+.card-status .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--sage); }
+
+.card-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem; color: var(--charcoal);
+  margin-bottom: 4px;
+}
+
+.card-sub { font-size: 0.8rem; color: var(--muted); font-weight: 500; }
+
+.coverage-bar {
+  background: var(--cream);
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin: 20px 0;
+}
+
+.coverage-label {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 10px;
+}
+
+.coverage-label span { font-size: 0.8rem; color: var(--muted); font-weight: 500; }
+.coverage-label strong { font-size: 0.9rem; color: var(--charcoal); }
+
+.progress-track {
+  height: 6px; background: rgba(26,61,43,0.08); border-radius: 99px; overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%; border-radius: 99px;
+  background: linear-gradient(90deg, var(--sage), var(--sage-light));
+  width: 0%;
+  transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.price-row {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  margin-top: 20px;
+}
+
+.price-big {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem; font-weight: 700; color: var(--charcoal);
+}
+
+.price-period { font-size: 0.8rem; color: var(--muted); margin-left: 4px; font-weight: 400; }
+
+.price-badge {
+  background: var(--gold-pale);
+  border-radius: 8px; padding: 6px 12px;
+  font-size: 0.75rem; font-weight: 700; color: #8a6420;
+}
+
+/* Floating cards */
+.float-card {
+  position: absolute;
+  background: white;
+  border-radius: 16px;
+  padding: 12px 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  display: flex; align-items: center; gap: 10px;
+  white-space: nowrap;
+}
+
+.float-card-1 {
+  top: -20px; right: -24px;
+  animation: floatCard 4s ease-in-out infinite;
+}
+
+.float-card-2 {
+  bottom: -16px; left: -24px;
+  animation: floatCard 4s 2s ease-in-out infinite;
+}
+
+.float-icon {
+  width: 34px; height: 34px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; flex-shrink: 0;
+}
+
+.float-card-text strong { display: block; font-size: 0.82rem; font-weight: 700; color: var(--charcoal); }
+.float-card-text span { font-size: 0.72rem; color: var(--muted); }
+
+/* ─── TRUST STRIP ─── */
+.trust-strip {
+  background: white;
+  border-bottom: 1px solid var(--border);
+  padding: 20px 5%;
+  display: flex; align-items: center; justify-content: center; gap: 40px;
+  flex-wrap: wrap;
+}
+
+.trust-item {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 0.875rem; font-weight: 600; color: var(--mid);
+}
+
+.trust-item svg { width: 18px; height: 18px; fill: var(--sage); }
+
+.trust-divider { width: 1px; height: 24px; background: var(--border); }
+
+/* ─── PRODUCTS ─── */
+.products-section {
+  padding: 80px 5% 64px;
+  max-width: 1100px; margin: 0 auto;
+}
+
+.section-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em;
+  color: var(--sage); text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.section-eyebrow span { width: 24px; height: 2px; background: var(--sage); display: inline-block; }
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  color: var(--forest);
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.section-sub {
+  font-size: 1rem; color: var(--muted); font-weight: 400;
+  max-width: 480px; line-height: 1.65; margin-bottom: 48px;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.product-card {
+  background: white;
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  padding: 28px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  display: block;
+}
+
+.product-card::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(45,90,61,0.0) 0%, rgba(45,90,61,0.04) 100%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.product-card:hover {
+  border-color: var(--sage);
+  transform: translateY(-6px);
+  box-shadow: 0 24px 60px rgba(26,61,43,0.12), 0 0 0 0.5px rgba(74,140,98,0.3);
+}
+
+.product-card:hover::after { opacity: 1; }
+
+.product-icon-wrap {
+  width: 56px; height: 56px; border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.product-icon-wrap.health { background: linear-gradient(135deg, #e8f5ed 0%, #d0edd8 100%); }
+.product-icon-wrap.motor { background: linear-gradient(135deg, #e5eef8 0%, #cfe0f5 100%); }
+.product-icon-wrap.life { background: linear-gradient(135deg, #fdf4e0 0%, #fbe6b0 100%); }
+.product-icon-wrap.travel { background: linear-gradient(135deg, #f0e8f5 0%, #e0d0f0 100%); }
+.product-icon-wrap.home { background: linear-gradient(135deg, #fce8e8 0%, #f5d0d0 100%); }
+.product-icon-wrap.biz { background: linear-gradient(135deg, #e8f4f5 0%, #d0e8eb 100%); }
+
+.product-icon-wrap svg { width: 28px; height: 28px; }
+
+.product-card h3 {
+  font-size: 1.05rem; font-weight: 700; color: var(--forest);
+  margin-bottom: 6px;
+}
+
+.product-card p {
+  font-size: 0.875rem; color: var(--muted); margin-bottom: 18px;
+  line-height: 1.5;
+}
+
+.product-from {
+  display: flex; align-items: center; justify-content: space-between;
+}
+
+.product-price {
+  font-size: 0.875rem; font-weight: 700; color: var(--forest);
+}
+
+.product-price span { font-weight: 400; color: var(--muted); }
+
+.product-arrow {
+  width: 30px; height: 30px; border-radius: 50%;
+  border: 1.5px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+  color: var(--muted);
+}
+
+.product-card:hover .product-arrow {
+  background: var(--forest); border-color: var(--forest); color: white;
+}
+
+.product-arrow svg { width: 14px; height: 14px; }
+
+/* ─── HOW IT WORKS ─── */
+.how-section {
+  background: var(--forest-deep);
+  padding: 80px 5%;
+  position: relative;
+  overflow: hidden;
+}
+
+.how-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 70% 80% at 80% 50%, rgba(74,140,98,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.how-inner { max-width: 1100px; margin: 0 auto; position: relative; }
+
+.how-section .section-eyebrow { color: var(--sage-light); }
+.how-section .section-eyebrow span { background: var(--sage-light); }
+.how-section .section-title { color: white; }
+.how-section .section-sub { color: rgba(255,255,255,0.5); }
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.step {
+  background: rgba(14,36,25,0.7);
+  padding: 40px 32px;
+  transition: background 0.3s;
+}
+
+.step:hover { background: rgba(26,61,43,0.6); }
+
+.step-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem; font-weight: 900; color: rgba(255,255,255,0.06);
+  line-height: 1; margin-bottom: 20px;
+  display: block;
+}
+
+.step-icon {
+  width: 48px; height: 48px; border-radius: 14px;
+  background: rgba(255,255,255,0.06);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 20px; font-size: 1.3rem;
+}
+
+.step h3 {
+  font-size: 1.05rem; font-weight: 700; color: white;
+  margin-bottom: 10px;
+}
+
+.step p {
+  font-size: 0.875rem; color: rgba(255,255,255,0.5);
+  line-height: 1.65;
+}
+
+/* ─── WHY SECTION ─── */
+.why-section {
+  padding: 80px 5%;
+  max-width: 1100px; margin: 0 auto;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 20px;
+  margin-top: 48px;
+}
+
+.why-card-big {
+  background: var(--forest);
+  border-radius: 24px;
+  padding: 40px 36px;
+  grid-row: span 2;
+  position: relative; overflow: hidden;
+}
+
+.why-card-big::before {
+  content: '';
+  position: absolute; bottom: -60px; right: -60px;
+  width: 200px; height: 200px; border-radius: 50%;
+  background: rgba(255,255,255,0.04);
+}
+
+.why-card-big .big-icon { font-size: 3rem; margin-bottom: 24px; display: block; }
+.why-card-big h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: white; margin-bottom: 14px; line-height: 1.2; }
+.why-card-big p { font-size: 0.9rem; color: rgba(255,255,255,0.6); line-height: 1.65; margin-bottom: 28px; }
+.why-card-big .stat { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; color: var(--gold-light); line-height: 1; }
+.why-card-big .stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-top: 4px; }
+
+.why-card-sm {
+  background: white;
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  padding: 28px;
+  transition: all 0.25s;
+}
+
+.why-card-sm:hover {
+  border-color: var(--sage);
+  box-shadow: 0 8px 32px rgba(26,61,43,0.08);
+  transform: translateY(-3px);
+}
+
+.why-icon-sm {
+  width: 44px; height: 44px; border-radius: 12px;
+  background: var(--mint-pale);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 16px; font-size: 1.2rem;
+}
+
+.why-card-sm h3 { font-size: 1rem; font-weight: 700; color: var(--forest); margin-bottom: 8px; }
+.why-card-sm p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+
+/* ─── PARTNERS ─── */
+.partners-section {
+  background: white;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 40px 5%;
+  display: flex; align-items: center; justify-content: center;
+  gap: 16px; flex-wrap: wrap;
+}
+
+.partners-label {
+  font-size: 0.8rem; font-weight: 600; color: var(--muted);
+  letter-spacing: 0.08em; text-transform: uppercase;
+  margin-right: 12px;
+}
+
+.partner-pill {
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 22px;
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem; color: var(--mid);
+  transition: all 0.2s;
+}
+
+.partner-pill:hover { border-color: var(--sage); color: var(--forest); }
+
+/* ─── CTA ─── */
+.cta-section {
+  padding: 80px 5%;
+  background: var(--cream);
+}
+
+.cta-inner {
+  background: linear-gradient(135deg, var(--forest) 0%, var(--moss) 100%);
+  border-radius: 32px;
+  padding: 64px 60px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center; gap: 48px;
+  position: relative; overflow: hidden;
+  max-width: 1100px; margin: 0 auto;
+}
+
+.cta-inner::before {
+  content: '';
+  position: absolute; top: -100px; right: 200px;
+  width: 300px; height: 300px; border-radius: 50%;
+  background: rgba(255,255,255,0.04);
+}
+
+.cta-inner::after {
+  content: '';
+  position: absolute; bottom: -80px; left: 60%;
+  width: 200px; height: 200px; border-radius: 50%;
+  background: rgba(212,168,67,0.08);
+}
+
+.cta-text { position: relative; z-index: 1; }
+.cta-text h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 3vw, 2.2rem); color: white; margin-bottom: 14px; line-height: 1.2; }
+.cta-text p { font-size: 0.95rem; color: rgba(255,255,255,0.6); line-height: 1.65; }
+
+.cta-actions {
+  display: flex; flex-direction: column; gap: 12px; align-items: flex-end;
+  position: relative; z-index: 1; flex-shrink: 0;
+}
+
+.btn-cta {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--gold);
+  color: var(--forest-deep) !important;
+  font-size: 0.95rem; font-weight: 700;
+  padding: 16px 36px; border-radius: 50px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.25s;
+  box-shadow: 0 4px 24px rgba(212,168,67,0.4);
+}
+
+.btn-cta:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+.cta-note {
+  font-size: 0.78rem; color: rgba(255,255,255,0.4);
+  text-align: right;
+}
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--forest-deep);
+  padding: 60px 5% 40px;
+}
+
+.footer-top-row {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.footer-brand .logo-name { color: rgba(255,255,255,0.9); margin-top: 12px; display: block; }
+.footer-brand p { font-size: 0.875rem; color: rgba(255,255,255,0.4); line-height: 1.65; margin-top: 12px; max-width: 260px; }
+
+.footer-col h4 { font-size: 0.8rem; font-weight: 700; color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; }
+.footer-col a { display: block; font-size: 0.875rem; color: rgba(255,255,255,0.55); text-decoration: none; margin-bottom: 10px; transition: color 0.2s; }
+.footer-col a:hover { color: var(--sage-light); }
+
+.footer-bottom {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 16px;
+}
+
+.footer-bottom p { font-size: 0.8rem; color: rgba(255,255,255,0.3); }
+
+.footer-badges {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+}
+
+.footer-badge {
+  display: flex; align-items: center; gap: 6px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 8px; padding: 6px 12px;
+  font-size: 0.75rem; color: rgba(255,255,255,0.5); font-weight: 500;
+}
+
+.footer-badge svg { width: 14px; height: 14px; fill: var(--sage-light); }
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+}
+
+@keyframes ripple {
+  0% { box-shadow: 0 0 0 0 rgba(106,179,131,0.5); }
+  70% { box-shadow: 0 0 0 8px rgba(106,179,131,0); }
+  100% { box-shadow: 0 0 0 0 rgba(106,179,131,0); }
+}
+
+@keyframes floatCard {
+  0%, 100% { transform: translateY(0px) rotate(-1deg); }
+  50% { transform: translateY(-10px) rotate(-1deg); }
+}
+
+.animate-in {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.animate-in.visible { opacity: 1; transform: translateY(0); }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-right { display: none; }
+  .hero-left { padding: 60px 5% 60px; }
+  .products-grid { grid-template-columns: 1fr 1fr; }
+  .steps-grid { grid-template-columns: 1fr; gap: 1px; }
+  .why-grid { grid-template-columns: 1fr 1fr; }
+  .why-card-big { grid-row: auto; }
+  .cta-inner { grid-template-columns: 1fr; padding: 44px 36px; }
+  .cta-actions { align-items: flex-start; }
+  .footer-top-row { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 600px) {
+  .products-grid { grid-template-columns: 1fr; }
+  .why-grid { grid-template-columns: 1fr; }
+  .trust-strip { gap: 20px; }
+  .trust-divider { display: none; }
+  .nav-links a:not(.btn-primary) { display: none; }
+  .footer-top-row { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="logo" href="#">
+    <div class="logo-mark">
+      <svg viewBox="0 0 24 24"><path d="M12 2L4 6v6c0 5.25 3.5 10.15 8 11.35C16.5 22.15 20 17.25 20 12V6L12 2z"/></svg>
+    </div>
+    <span class="logo-name">Emerald</span>
+  </a>
+  <div class="nav-links">
+    <a href="#">Products</a>
+    <a href="#">How It Works</a>
+    <a href="#">About</a>
+    <a href="#" class="btn-primary">Get Covered</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="blob1"></div>
+    <div class="blob2"></div>
+    <div class="grid-lines"></div>
+  </div>
+
+  <div class="hero-left">
+    <div class="hero-badge">
+      <div class="pulse-dot"></div>
+      <span>2,500+ Kenyans protected</span>
+    </div>
+    <h1>Insurance<br>that <em>actually</em><br>fits your life.</h1>
+    <p>Affordable health, motor and life coverage — set up in minutes, paid via M-Pesa. No paperwork. No delays.</p>
+    <div class="hero-actions">
+      <a href="#" class="btn-hero-primary">
+        Get a Free Quote
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#" class="btn-hero-ghost">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+        See how it works
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-card-stack">
+
+      <!-- Floating cards -->
+      <div class="float-card float-card-1">
+        <div class="float-icon" style="background:#e8f5ed;">✓</div>
+        <div class="float-card-text">
+          <strong>Coverage Active</strong>
+          <span>Started instantly</span>
+        </div>
+      </div>
+
+      <div class="float-card float-card-2">
+        <div class="float-icon" style="background:#fdf4e0; font-size:1rem;">⚡</div>
+        <div class="float-card-text">
+          <strong>M-Pesa Payment</strong>
+          <span>Confirmed • KES 200</span>
+        </div>
+      </div>
+
+      <!-- Main card -->
+      <div class="main-card">
+        <div class="card-header">
+          <div class="card-avatar">👨‍👩‍👧</div>
+          <div class="card-status"><div class="dot"></div>Active</div>
+        </div>
+
+        <p class="card-name">Kamau Family Plan</p>
+        <p class="card-sub">Comprehensive Health · 4 members</p>
+
+        <div class="coverage-bar">
+          <div class="coverage-label">
+            <span>Coverage used this year</span>
+            <strong>34%</strong>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" id="prog"></div>
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:4px;">
+          <div style="background:var(--cream); border-radius:10px; padding:14px 16px;">
+            <p style="font-size:0.72rem; color:var(--muted); margin-bottom:4px; font-weight:500;">Monthly</p>
+            <p style="font-size:1.1rem; font-weight:700; color:var(--forest); font-family:'Playfair Display',serif;">KES 800</p>
+          </div>
+          <div style="background:var(--cream); border-radius:10px; padding:14px 16px;">
+            <p style="font-size:0.72rem; color:var(--muted); margin-bottom:4px; font-weight:500;">Cover limit</p>
+            <p style="font-size:1.1rem; font-weight:700; color:var(--forest); font-family:'Playfair Display',serif;">1M KES</p>
+          </div>
+        </div>
+
+        <div class="price-row">
+          <div>
+            <p style="font-size:0.75rem; color:var(--muted); margin-bottom:4px;">Next renewal</p>
+            <p style="font-size:0.9rem; font-weight:600; color:var(--charcoal);">April 30, 2026</p>
+          </div>
+          <div class="price-badge">✓ All claims paid</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24"><path d="M12 2L4 6v6c0 5.25 3.5 10.15 8 11.35C16.5 22.15 20 17.25 20 12V6L12 2zm-1 13l-4-4 1.41-1.41L11 12.17l6.59-6.58L19 7l-8 8z"/></svg>
+    IRA Regulated Insurers
+  </div>
+  <div class="trust-divider"></div>
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+    Instant M-Pesa Payment
+  </div>
+  <div class="trust-divider"></div>
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+    Cover starts in 3 minutes
+  </div>
+  <div class="trust-divider"></div>
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg>
+    Cancel anytime
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<section class="products-section animate-in">
+  <div class="section-eyebrow"><span></span>Coverage Options</div>
+  <h2 class="section-title">Pick what you need,<br>pay what's fair.</h2>
+  <p class="section-sub">From daily health to long-term life coverage — all in one place, underwritten by Kenya's most trusted insurers.</p>
+
+  <div class="products-grid">
+
+    <a href="#" class="product-card animate-in">
+      <div class="product-icon-wrap health">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#2d5a3d" stroke-width="1.8" stroke-linecap="round"><path d="M12 2L4 6v6c0 5.25 3.5 10.15 8 11.35C16.5 22.15 20 17.25 20 12V6L12 2z"/><path d="M12 8v8M8 12h8"/></svg>
+      </div>
+      <h3>Health Insurance</h3>
+      <p>Outpatient, inpatient & maternity cover for individuals and families.</p>
+      <div class="product-from">
+        <div class="product-price">From KES 200<span> / month</span></div>
+        <div class="product-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </div>
+    </a>
+
+    <a href="#" class="product-card animate-in" style="transition-delay:0.05s">
+      <div class="product-icon-wrap motor">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#2a5a8a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="9" width="20" height="8" rx="2"/><path d="M6 17v2M18 17v2M4 9l3-5h10l3 5"/><circle cx="7.5" cy="14" r="1"/><circle cx="16.5" cy="14" r="1"/></svg>
+      </div>
+      <h3>Motor Insurance</h3>
+      <p>Comprehensive & third-party cover for your vehicle. Instant certificate.</p>
+      <div class="product-from">
+        <div class="product-price">From KES 1,500<span> / year</span></div>
+        <div class="product-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </div>
+    </a>
+
+    <a href="#" class="product-card animate-in" style="transition-delay:0.1s">
+      <div class="product-icon-wrap life">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#a07010" stroke-width="1.8" stroke-linecap="round"><path d="M12 2L4 6v6c0 5.25 3.5 10.15 8 11.35C16.5 22.15 20 17.25 20 12V6L12 2z"/><path d="M9 12l2 2 4-4"/></svg>
+      </div>
+      <h3>Life Insurance</h3>
+      <p>Protect your family's future with affordable term life coverage.</p>
+      <div class="product-from">
+        <div class="product-price">From KES 300<span> / month</span></div>
+        <div class="product-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </div>
+    </a>
+
+    <a href="#" class="product-card animate-in" style="transition-delay:0.15s">
+      <div class="product-icon-wrap travel">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#7040a0" stroke-width="1.8" stroke-linecap="round"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
+      </div>
+      <h3>Travel Insurance</h3>
+      <p>Single & multi-trip cover for domestic and international travel.</p>
+      <div class="product-from">
+        <div class="product-price">From KES 500<span> / trip</span></div>
+        <div class="product-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </div>
+    </a>
+
+    <a href="#" class="product-card animate-in" style="transition-delay:0.2s">
+      <div class="product-icon-wrap home">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#b03030" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
+      <h3>Home Insurance</h3>
+      <p>Protect your home and contents from fire, theft and natural disaster.</p>
+      <div class="product-from">
+        <div class="product-price">From KES 400<span> / month</span></div>
+        <div class="product-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </div>
+    </a>
+
+    <a href="#" class="product-card animate-in" style="transition-delay:0.25s">
+      <div class="product-icon-wrap biz">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#206870" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+      </div>
+      <h3>Business Insurance</h3>
+      <p>SME-focused cover: liability, fire, stock and employee benefits.</p>
+      <div class="product-from">
+        <div class="product-price">From KES 1,200<span> / month</span></div>
+        <div class="product-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section">
+  <div class="how-inner">
+    <div class="section-eyebrow animate-in"><span></span>Simple Process</div>
+    <h2 class="section-title animate-in">Ready in 3 steps.</h2>
+    <p class="section-sub animate-in">No branch visits. No long forms. Just fast, honest protection.</p>
+
+    <div class="steps-grid animate-in">
+      <div class="step">
+        <span class="step-number">01</span>
+        <div class="step-icon">🔍</div>
+        <h3>Compare & Choose</h3>
+        <p>Answer a few quick questions, see instant quotes from top insurers, and pick the plan that fits your needs and budget.</p>
+      </div>
+      <div class="step">
+        <span class="step-number">02</span>
+        <div class="step-icon">📱</div>
+        <h3>Pay with M-Pesa</h3>
+        <p>Complete your payment securely via M-Pesa, card, or bank transfer in under a minute. No queues, no forms.</p>
+      </div>
+      <div class="step">
+        <span class="step-number">03</span>
+        <div class="step-icon">✅</div>
+        <h3>You're Covered</h3>
+        <p>Receive your certificate instantly by SMS and email. Your coverage is active and you can manage everything from your phone.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section style="padding:80px 5%; background:var(--cream);">
+  <div style="max-width:1100px; margin:0 auto;">
+    <div class="section-eyebrow animate-in"><span></span>Why Emerald</div>
+    <h2 class="section-title animate-in">Built for real Kenyan lives.</h2>
+
+    <div class="why-grid animate-in">
+      <div class="why-card-big">
+        <span class="big-icon">🛡️</span>
+        <h3>Trusted by thousands across Kenya</h3>
+        <p>Every policy is underwritten by IRA-regulated, top-rated Kenyan insurance companies — the same ones behind the country's biggest claims.</p>
+        <div class="stat">2,500+</div>
+        <div class="stat-label">Kenyans covered and counting</div>
+      </div>
+
+      <div class="why-card-sm animate-in">
+        <div class="why-icon-sm">⚡</div>
+        <h3>Instant quotes</h3>
+        <p>See your price in seconds — no calls, no waiting, no sales pitch. Just clear, upfront numbers.</p>
+      </div>
+
+      <div class="why-card-sm animate-in" style="transition-delay:0.05s">
+        <div class="why-icon-sm">📲</div>
+        <h3>M-Pesa native</h3>
+        <p>Pay, renew and claim directly from your phone using M-Pesa. That's how Kenya moves.</p>
+      </div>
+
+      <div class="why-card-sm animate-in" style="transition-delay:0.1s">
+        <div class="why-icon-sm">🤝</div>
+        <h3>Local support</h3>
+        <p>Reach a real human by SMS, WhatsApp or call — in Swahili or English — whenever you need us.</p>
+      </div>
+
+      <div class="why-card-sm animate-in" style="transition-delay:0.15s">
+        <div class="why-icon-sm">🔄</div>
+        <h3>Cancel anytime</h3>
+        <p>No long-term lock-in. Pause or cancel your policy with zero penalty — you're always in control.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<div class="partners-section animate-in">
+  <span class="partners-label">Underwritten by</span>
+  <div class="partner-pill">Liberty</div>
+  <div class="partner-pill">Jubilee</div>
+  <div class="partner-pill">CIC Group</div>
+  <div class="partner-pill">AAR Insurance</div>
+  <div class="partner-pill">Madison</div>
+</div>
+
+<!-- CTA -->
+<section class="cta-section animate-in">
+  <div class="cta-inner">
+    <div class="cta-text">
+      <h2>Get covered before<br>tomorrow comes.</h2>
+      <p>Quotes are free, instant and commitment-free. Find your price in 60 seconds.</p>
+    </div>
+    <div class="cta-actions">
+      <a href="#" class="btn-cta">
+        Get My Free Quote
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <p class="cta-note">No spam. No calls unless you want one.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top-row">
+    <div class="footer-brand">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <div class="logo-mark">
+          <svg viewBox="0 0 24 24"><path d="M12 2L4 6v6c0 5.25 3.5 10.15 8 11.35C16.5 22.15 20 17.25 20 12V6L12 2z"/></svg>
+        </div>
+        <span class="logo-name">Emerald</span>
+      </div>
+      <p>Affordable, instant insurance for every Kenyan — from families to businesses.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Products</h4>
+      <a href="#">Health</a>
+      <a href="#">Motor</a>
+      <a href="#">Life</a>
+      <a href="#">Travel</a>
+      <a href="#">Home</a>
+      <a href="#">Business</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="#">About Us</a>
+      <a href="#">How It Works</a>
+      <a href="#">Partners</a>
+      <a href="#">Careers</a>
+      <a href="#">Blog</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Support</h4>
+      <a href="#">FAQs</a>
+      <a href="#">Contact Us</a>
+      <a href="#">Make a Claim</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Use</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 Emerald Insurance Ltd. All rights reserved. IRA licensed broker.</p>
+    <div class="footer-badges">
+      <div class="footer-badge">
+        <svg viewBox="0 0 24 24"><path d="M12 2L4 6v6c0 5.25 3.5 10.15 8 11.35C16.5 22.15 20 17.25 20 12V6L12 2z"/></svg>
+        IRA Regulated
+      </div>
+      <div class="footer-badge">
+        <svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+        SSL Secured
+      </div>
+      <div class="footer-badge">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+        M-Pesa Partner
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        if (e.target.id === 'prog') return;
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.animate-in').forEach(el => observer.observe(el));
+
+  // Animate progress bar when hero loads
+  setTimeout(() => {
+    const prog = document.getElementById('prog');
+    if (prog) prog.style.width = '34%';
+  }, 800);
+
+  // Stagger product cards
+  document.querySelectorAll('.product-card.animate-in').forEach((el, i) => {
+    el.style.transitionDelay = (i * 0.07) + 's';
+  });
+</script>
+</body>
+</html>
